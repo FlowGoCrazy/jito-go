@@ -2,11 +2,11 @@ package blockengine_client
 
 import (
 	"context"
+	"github.com/FlowGoCrazy/jito-go"
+	"github.com/FlowGoCrazy/jito-go/proto"
 	"github.com/gagliardetto/solana-go"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
-	"github.com/weeaa/jito-go"
-	"github.com/weeaa/jito-go/proto"
 	"os"
 	"path/filepath"
 	"runtime"

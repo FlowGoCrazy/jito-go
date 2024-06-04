@@ -1,15 +1,17 @@
 # Jito Go SDK
-[![GoDoc](https://pkg.go.dev/badge/github.com/weeaa/jito-go?status.svg)](https://pkg.go.dev/github.com/weeaa/jito-go?tab=doc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/weeaa/jito-go)](https://goreportcard.com/report/github.com/weeaa/jito-go)
+
+[![GoDoc](https://pkg.go.dev/badge/github.com/FlowGoCrazy/jito-go?status.svg)](https://pkg.go.dev/github.com/FlowGoCrazy/jito-go?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/FlowGoCrazy/jito-go)](https://goreportcard.com/report/github.com/FlowGoCrazy/jito-go)
 [![License](https://img.shields.io/badge/license-Apache_2.0-crimson)](https://opensource.org/license/apache-2-0)
 
 This library contains tooling to interact with **[Jito Labs](https://www.jito.wtf/)** MEV software. ⚠️ Work in progress. ⚠️
 
-We currently use [gagliardetto/solana-go](https://github.com/gagliardetto/solana-go) to interact with Solana.  PRs and contributions are welcome.
+We currently use [gagliardetto/solana-go](https://github.com/gagliardetto/solana-go) to interact with Solana. PRs and contributions are welcome.
 
-![jitolabs](https://github.com/weeaa/jito-go/assets/108926252/5751416c-333b-412e-8f3f-f26b2839be98)
+![jitolabs](https://github.com/FlowGoCrazy/jito-go/assets/108926252/5751416c-333b-412e-8f3f-f26b2839be98)
 
 ## ❇️ Contents
+
 - [Features](#-features)
 - [RPC Methods](#-rpc-methods)
 - [Installing](#-installing)
@@ -25,6 +27,7 @@ We currently use [gagliardetto/solana-go](https://github.com/gagliardetto/solana
 - [License](#-license)
 
 ## ✨ Features
+
 - [x] Searcher
 - [x] Block Engine
 - [x] Relayer
@@ -32,7 +35,9 @@ We currently use [gagliardetto/solana-go](https://github.com/gagliardetto/solana
 - [x] Geyser
 
 ## 📡 RPC Methods
+
 `🤡* methods which are deprecated by Jito due to malicious use`
+
 - [x] **Searcher**
   - `SubscribeMempoolAccounts` 🤡
   - `SubscribeMempoolPrograms` 🤡
@@ -69,8 +74,9 @@ We currently use [gagliardetto/solana-go](https://github.com/gagliardetto/solana
 ## 💾 Installing
 
 Go 1.22.0 or higher.
+
 ```shell
-go get github.com/weeaa/jito-go@latest
+go get github.com/FlowGoCrazy/jito-go@latest
 ```
 
 If you want to run tests:
@@ -80,12 +86,14 @@ If you want to run tests:
 3. Run tests with `task test`.
 
 ## 🔑 Keypair Authentication
+
 To access Jito MEV functionalities, you'll need a whitelisted Public Key obtained from a fresh KeyPair; submit your Public Key [here](https://web.miniextensions.com/WV3gZjFwqNqITsMufIEp).
 In order to generate a new KeyPair, you can use the following function `GenerateKeypair()` from the `/pkg` package.
 
 ## 💻 Examples
 
 ### `Send Bundle`
+
 ```go
 package main
 
@@ -96,8 +104,8 @@ import (
   "github.com/gagliardetto/solana-go/programs/system"
   "github.com/gagliardetto/solana-go/rpc"
   "github.com/joho/godotenv"
-  "github.com/weeaa/jito-go"
-  "github.com/weeaa/jito-go/clients/searcher_client"
+  "github.com/FlowGoCrazy/jito-go"
+  "github.com/FlowGoCrazy/jito-go/clients/searcher_client"
   "log"
   "os"
   "time"
@@ -122,7 +130,7 @@ func main() {
   if err != nil {
     log.Fatal(err)
   }
-  
+
   ctx := context.Background()
 
   client, err := searcher_client.New(
@@ -197,7 +205,9 @@ func main() {
   log.Println(resp)
 }
 ```
+
 ### `Subscribe to MemPool Transactions [Accounts]`
+
 ```go
 package main
 
@@ -206,8 +216,8 @@ import (
   "github.com/gagliardetto/solana-go"
   "github.com/gagliardetto/solana-go/rpc"
   "github.com/joho/godotenv"
-  "github.com/weeaa/jito-go"
-  "github.com/weeaa/jito-go/clients/searcher_client"
+  "github.com/FlowGoCrazy/jito-go"
+  "github.com/FlowGoCrazy/jito-go/clients/searcher_client"
   "log"
   "os"
 )
@@ -267,14 +277,15 @@ func main() {
 ```
 
 ### `Get Regions`
+
 ```go
 package main
 
 import (
     "github.com/gagliardetto/solana-go"
     "github.com/gagliardetto/solana-go/rpc"
-    "github.com/weeaa/jito-go"
-    "github.com/weeaa/jito-go/clients/searcher_client"
+    "github.com/FlowGoCrazy/jito-go"
+    "github.com/FlowGoCrazy/jito-go/clients/searcher_client"
     "log"
     "os"
 )
@@ -323,12 +334,13 @@ func main() {
 ```
 
 ### `Subscribe Block Updates [Geyser]`
+
 ```go
 package main
 
 import (
   "context"
-  "github.com/weeaa/jito-go/clients/geyser_client"
+  "github.com/FlowGoCrazy/jito-go/clients/geyser_client"
   "log"
 )
 
@@ -356,6 +368,7 @@ func main() {
 ```
 
 ### `Simulate Bundle`
+
 ```go
 package main
 
@@ -365,8 +378,8 @@ import (
   "github.com/gagliardetto/solana-go/programs/system"
   "github.com/gagliardetto/solana-go/rpc"
   "github.com/joho/godotenv"
-  "github.com/weeaa/jito-go"
-  "github.com/weeaa/jito-go/clients/searcher_client"
+  "github.com/FlowGoCrazy/jito-go"
+  "github.com/FlowGoCrazy/jito-go/clients/searcher_client"
   "log"
   "os"
   "time"
@@ -487,14 +500,16 @@ func main() {
   log.Println(resp)
 }
 ```
+
 ## 🚨 Disclaimer
 
 **This library is not affiliated with Jito Labs**. It is a community project and is not officially supported by Jito Labs. Use at your own risk.
 
 ## 🛟 Support
+
 If my work has been useful in building your for-profit services/infra/bots/etc, consider donating at
 `EcrHvqa5Vh4NhR3bitRZVrdcUGr1Z3o6bXHz7xgBU2FB` (SOL).
 
 ## 📃 License
 
-[Apache-2.0 License](https://github.com/weeaa/jito-go/blob/main/LICENSE).
+[Apache-2.0 License](https://github.com/FlowGoCrazy/jito-go/blob/main/LICENSE).

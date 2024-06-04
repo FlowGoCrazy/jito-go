@@ -3,9 +3,9 @@ package pkg
 import (
 	"context"
 	"fmt"
+	"github.com/FlowGoCrazy/jito-go/proto"
 	"github.com/gagliardetto/solana-go"
 	"github.com/mr-tron/base58"
-	"github.com/weeaa/jito-go/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 	"sync"

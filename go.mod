@@ -1,4 +1,4 @@
-module github.com/weeaa/jito-go
+module github.com/FlowGoCrazy/jito-go
 
 go 1.22.0
 
